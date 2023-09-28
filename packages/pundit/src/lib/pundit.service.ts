@@ -8,9 +8,9 @@ import { SubjectProxy } from './proxies/subject.proxy';
 
 @Injectable()
 export class PunditService {
-  public authorize(user: AnyObject, policyClass: AnyClass, action: string, subject: AnyObject): boolean {
+  public authorize(user: AnyObject, policyClass: AnyClass, action: string, subject: AnyObject | AnyClass): boolean {
     const policy = new policyClass(user, subject);
-    return policy[action]();
+    return !!policy[action]?.();
   }
 
   public async authorizeByRequest<PolicyClass = AnyObject, Subject = AnyObject>(
@@ -24,7 +24,7 @@ export class PunditService {
     const subjectProxy = new SubjectProxy(request);
 
     const user = await userProxy.get();
-    const subject = await subjectProxy.get();
+    const subject = (await subjectProxy.get()) || punditMetadata?.subject;
     const policyClass = punditMetadata?.policyClass;
 
     // No user or subject or policyClass - no access

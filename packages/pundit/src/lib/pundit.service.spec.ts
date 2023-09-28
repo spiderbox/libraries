@@ -67,6 +67,24 @@ describe('PunditService', () => {
       expect(result).toBe(false);
     });
 
+    it('should return false when policy class exists and there is no action defined', () => {
+      // Arrange
+      const user = {};
+      const policyClass = jest.fn().mockImplementation(() => ({
+        [`${action}1`]: jest.fn().mockReturnValue(false),
+      }));
+      const action = 'read';
+      const subject = {};
+
+      const punditService = new PunditService();
+
+      // Act
+      const result = punditService.authorize(user, policyClass, action, subject);
+
+      // Assert
+      expect(result).toBe(false);
+    });
+
     // Policy class exists and throws an error
     it('should throw an error when policy class exists and throws an error', () => {
       // Arrange
