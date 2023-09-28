@@ -1,0 +1,48 @@
+{
+  "name": "pundit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pundit/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/pundit",
+        "tsConfig": "packages/pundit/tsconfig.lib.json",
+        "packageJson": "packages/pundit/package.json",
+        "main": "packages/pundit/src/index.ts",
+        "assets": ["packages/pundit/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs pundit {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/pundit/**/*.ts",
+          "packages/pundit/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/pundit/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
