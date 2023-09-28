@@ -1,5 +1,12 @@
 {
   "cSpell.words": [
+    "Authorizable",
+    "nestjs",
     "spiderbox"
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.*.ts"
+  }
 }

@@ -16,17 +16,14 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs pundit {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs pundit {args.ver} {args.tag} {args.otp}",
       "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/pundit/**/*.ts",
-          "packages/pundit/package.json"
-        ]
+        "lintFilePatterns": ["packages/pundit/**/*.ts", "packages/pundit/package.json"]
       }
     },
     "test": {

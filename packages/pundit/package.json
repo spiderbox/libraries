@@ -1,10 +1,40 @@
 {
   "name": "@spiderbox/nest-pundit",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Minimal authorization for NestJS heavily inspired by Pundit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spiderbox/libraries/issues"
+  },
+  "homepage": "https://github.com/spiderbox/libraries/packages/pundit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spiderbox/libraries",
+    "directory": "packages/pundit"
+  },
+  "author": {
+    "name": "Spiderbox Team",
+    "url": "https://spiderbox.design"
+  },
+  "keywords": [
+    "nestjs",
+    "pundit",
+    "authorization"
+  ],
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
-  "typings": "./src/index.d.ts"
+  "typings": "./src/index.d.ts",
+  "peerDependencies": {
+    "@nestjs/common": ">= 8.0.0",
+    "@nestjs/core": ">= 8.0.0",
+    "@nestjs/graphql": ">= 8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/graphql": {
+      "optional": true
+    }
+  }
 }
