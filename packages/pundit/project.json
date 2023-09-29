@@ -39,6 +39,12 @@
           "codeCoverage": true
         }
       }
+    },
+    "release-it": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "release-it -- --config=./packages/pundit/.release-it.json"
+      }
     }
   },
   "tags": []

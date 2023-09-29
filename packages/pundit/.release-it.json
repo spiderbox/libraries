@@ -1,0 +1,50 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "cleanup",
+            "section": "Cleanup"
+          },
+          {
+            "type": "docs",
+            "section": "Documentations"
+          }
+        ]
+      },
+      "infile": "packages/pundit/CHANGELOG.md",
+      "parserOpts": {
+        "headerPattern": "^(\\w*)(?:\\((slice*)\\))?\\: (.*)$"
+      }
+    },
+    "@release-it/bumper": {
+      "in": "packages/pundit/version.json",
+      "out": ["packages/pundit/version.json", "dist/packages/pundit/package.json"]
+    }
+  },
+  "git": {
+    "commitMessage": "chore(repo): release nest-pundit ${version}",
+    "tagName": "nest-pundit-v${version}"
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "Release: nest-pundit ${version}"
+  },
+  "hooks": {
+    "before:bump": "npx nx build pundit",
+    "after:bump": ["git checkout -- package.json"]
+  }
+}
