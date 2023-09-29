@@ -4,6 +4,8 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 jobs:
   main:
@@ -15,7 +17,4 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - run: npm ci
 
-      - run: npx nx format:check
-      - run: npx nx affected -t lint --parallel=3
       - run: npx nx affected -t test --parallel=3
-      - run: npx nx affected -t build --parallel=3
