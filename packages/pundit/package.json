@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/spiderbox/libraries/issues"
   },
-  "homepage": "https://github.com/spiderbox/libraries/packages/pundit",
+  "homepage": "https://github.com/spiderbox/libraries/tree/main/packages/pundit",
   "repository": {
     "type": "git",
     "url": "https://github.com/spiderbox/libraries",

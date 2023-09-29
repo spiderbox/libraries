@@ -24,7 +24,7 @@
       },
       "infile": "packages/pundit/CHANGELOG.md",
       "parserOpts": {
-        "headerPattern": "^(\\w*)(?:\\((slice*)\\))?\\: (.*)$"
+        "headerPattern": "^(\\w*)(?:\\((pundit*)\\))?\\: (.*)$"
       }
     },
     "@release-it/bumper": {
