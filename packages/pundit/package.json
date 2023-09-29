@@ -1,6 +1,6 @@
 {
   "name": "@spiderbox/nest-pundit",
-  "version": "0.0.3",
+  "version": "0.0.0-replace",
   "description": "Minimal authorization for NestJS heavily inspired by Pundit",
   "license": "MIT",
   "bugs": {

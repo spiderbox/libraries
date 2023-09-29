@@ -3,6 +3,7 @@
 Minimal authorization for NestJS "heavily inspired by" [pundit](https://github.com/varvet/pundit) and [@spiderbox/nest-pundit](https://github.com/getjerry/@spiderbox/nest-pundit).
 
 [![NPM version](https://img.shields.io/npm/v/%40spiderbox%2Fnest-pundit)](https://www.npmjs.com/package/@spiderbox/nest-pundit)
+[![CI](https://github.com/spiderbox/libraries/actions/workflows/build.yml/badge.svg)](https://github.com/spiderbox/libraries/actions/workflows/build.yml)
 
 ## Installation
 
